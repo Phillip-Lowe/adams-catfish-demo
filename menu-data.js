@@ -1,0 +1,421 @@
+// Adams Catfish Express & Catering — Menu Data
+// Realistic southern catfish menu with plate meals, combos, family packs, and sides
+
+const MENU = [
+  // ===== PLATES =====
+  {
+    id: "catfish-plate",
+    name: "Catfish Plate",
+    description: "3 pieces of hand-breaded fried catfish with hush puppies and your choice of side.",
+    price: 12.99,
+    category: "plates",
+    image: "🐟",
+    popular: true,
+    modifiers: [
+      {
+        id: "extra-fish",
+        name: "Extra Catfish",
+        type: "add",
+        options: [
+          { id: "+1-piece", name: "+1 Piece", price: 3.50 },
+          { id: "+2-pieces", name: "+2 Pieces", price: 6.50 },
+        ],
+      },
+      {
+        id: "side-choice",
+        name: "Side",
+        type: "select-one",
+        required: true,
+        options: [
+          { id: "fries", name: "Crinkle-Cut Fries", price: 0 },
+          { id: "coleslaw", name: "Creamy Coleslaw", price: 0 },
+          { id: "greens", name: "Turnip Greens", price: 0 },
+          { id: "beans", name: "White Beans", price: 0 },
+          { id: "onion-rings", name: "Onion Rings", price: 1.00 },
+        ],
+      },
+      {
+        id: "spice",
+        name: "Spice Level",
+        type: "select-one",
+        required: false,
+        options: [
+          { id: "mild", name: "Mild", price: 0 },
+          { id: "medium", name: "Medium", price: 0 },
+          { id: "spicy", name: "Spicy", price: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "shrimp-plate",
+    name: "Shrimp Plate",
+    description: "8 jumbo fried shrimp with hush puppies and your choice of side.",
+    price: 13.99,
+    category: "plates",
+    image: "🍤",
+    popular: true,
+    modifiers: [
+      {
+        id: "extra-shrimp",
+        name: "Extra Shrimp",
+        type: "add",
+        options: [
+          { id: "+4-shrimp", name: "+4 Shrimp", price: 4.50 },
+          { id: "+8-shrimp", name: "+8 Shrimp", price: 8.00 },
+        ],
+      },
+      {
+        id: "side-choice",
+        name: "Side",
+        type: "select-one",
+        required: true,
+        options: [
+          { id: "fries", name: "Crinkle-Cut Fries", price: 0 },
+          { id: "coleslaw", name: "Creamy Coleslaw", price: 0 },
+          { id: "greens", name: "Turnip Greens", price: 0 },
+          { id: "beans", name: "White Beans", price: 0 },
+          { id: "onion-rings", name: "Onion Rings", price: 1.00 },
+        ],
+      },
+      {
+        id: "spice",
+        name: "Spice Level",
+        type: "select-one",
+        required: false,
+        options: [
+          { id: "mild", name: "Mild", price: 0 },
+          { id: "medium", name: "Medium", price: 0 },
+          { id: "spicy", name: "Spicy", price: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "combo-plate",
+    name: "Catfish & Shrimp Combo",
+    description: "2 pieces of catfish + 4 jumbo shrimp with hush puppies and your choice of side. The best of both.",
+    price: 14.99,
+    category: "plates",
+    image: "🐟🍤",
+    popular: true,
+    modifiers: [
+      {
+        id: "upgrade",
+        name: "Upgrade",
+        type: "add",
+        options: [
+          { id: "+1-catfish", name: "+1 Catfish", price: 3.50 },
+          { id: "+4-shrimp", name: "+4 Shrimp", price: 4.50 },
+        ],
+      },
+      {
+        id: "side-choice",
+        name: "Side",
+        type: "select-one",
+        required: true,
+        options: [
+          { id: "fries", name: "Crinkle-Cut Fries", price: 0 },
+          { id: "coleslaw", name: "Creamy Coleslaw", price: 0 },
+          { id: "greens", name: "Turnip Greens", price: 0 },
+          { id: "beans", name: "White Beans", price: 0 },
+          { id: "onion-rings", name: "Onion Rings", price: 1.00 },
+        ],
+      },
+      {
+        id: "spice",
+        name: "Spice Level",
+        type: "select-one",
+        required: false,
+        options: [
+          { id: "mild", name: "Mild", price: 0 },
+          { id: "medium", name: "Medium", price: 0 },
+          { id: "spicy", name: "Spicy", price: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "chicken-plate",
+    name: "Chicken Tender Plate",
+    description: "4 hand-breaded chicken tenders with hush puppies and your choice of side.",
+    price: 10.99,
+    category: "plates",
+    image: "🍗",
+    popular: false,
+    modifiers: [
+      {
+        id: "extra-tenders",
+        name: "Extra Tenders",
+        type: "add",
+        options: [
+          { id: "+2-tenders", name: "+2 Tenders", price: 3.00 },
+        ],
+      },
+      {
+        id: "side-choice",
+        name: "Side",
+        type: "select-one",
+        required: true,
+        options: [
+          { id: "fries", name: "Crinkle-Cut Fries", price: 0 },
+          { id: "coleslaw", name: "Creamy Coleslaw", price: 0 },
+          { id: "greens", name: "Turnip Greens", price: 0 },
+          { id: "beans", name: "White Beans", price: 0 },
+          { id: "onion-rings", name: "Onion Rings", price: 1.00 },
+        ],
+      },
+      {
+        id: "spice",
+        name: "Spice Level",
+        type: "select-one",
+        required: false,
+        options: [
+          { id: "mild", name: "Mild", price: 0 },
+          { id: "medium", name: "Medium", price: 0 },
+          { id: "spicy", name: "Spicy", price: 0 },
+        ],
+      },
+    ],
+  },
+
+  // ===== FAMILY PACKS =====
+  {
+    id: "family-catfish",
+    name: "Family Catfish Pack",
+    description: "10 pieces of fried catfish, 8 hush puppies, 2 large sides. Feeds 4-5 people.",
+    price: 34.99,
+    category: "family",
+    image: "👨‍👩‍👧‍👦",
+    popular: true,
+    modifiers: [
+      {
+        id: "sides",
+        name: "Sides (Pick 2)",
+        type: "select-multiple",
+        required: true,
+        maxSelect: 2,
+        options: [
+          { id: "fries", name: "Crinkle-Cut Fries", price: 0 },
+          { id: "coleslaw", name: "Creamy Coleslaw", price: 0 },
+          { id: "greens", name: "Turnip Greens", price: 0 },
+          { id: "beans", name: "White Beans", price: 0 },
+          { id: "onion-rings", name: "Onion Rings", price: 1.50 },
+        ],
+      },
+      {
+        id: "add-ons",
+        name: "Add-Ons",
+        type: "add",
+        options: [
+          { id: "+5-catfish", name: "+5 Catfish", price: 14.00 },
+          { id: "+6-hushpuppies", name: "+6 Hush Puppies", price: 3.00 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "family-combo",
+    name: "Family Combo Pack",
+    description: "6 catfish + 8 shrimp + 8 hush puppies + 2 large sides. Feeds 4-5 people.",
+    price: 42.99,
+    category: "family",
+    image: "🍽️",
+    popular: false,
+    modifiers: [
+      {
+        id: "sides",
+        name: "Sides (Pick 2)",
+        type: "select-multiple",
+        required: true,
+        maxSelect: 2,
+        options: [
+          { id: "fries", name: "Crinkle-Cut Fries", price: 0 },
+          { id: "coleslaw", name: "Creamy Coleslaw", price: 0 },
+          { id: "greens", name: "Turnip Greens", price: 0 },
+          { id: "beans", name: "White Beans", price: 0 },
+          { id: "onion-rings", name: "Onion Rings", price: 1.50 },
+        ],
+      },
+      {
+        id: "add-ons",
+        name: "Add-Ons",
+        type: "add",
+        options: [
+          { id: "+5-catfish", name: "+5 Catfish", price: 14.00 },
+          { id: "+8-shrimp", name: "+8 Shrimp", price: 12.00 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "family-shrimp",
+    name: "Family Shrimp Pack",
+    description: "20 jumbo shrimp + 8 hush puppies + 2 large sides. Feeds 4-5 people.",
+    price: 38.99,
+    category: "family",
+    image: "🍤👨‍👩‍👧‍👦",
+    popular: false,
+    modifiers: [
+      {
+        id: "sides",
+        name: "Sides (Pick 2)",
+        type: "select-multiple",
+        required: true,
+        maxSelect: 2,
+        options: [
+          { id: "fries", name: "Crinkle-Cut Fries", price: 0 },
+          { id: "coleslaw", name: "Creamy Coleslaw", price: 0 },
+          { id: "greens", name: "Turnip Greens", price: 0 },
+          { id: "beans", name: "White Beans", price: 0 },
+          { id: "onion-rings", name: "Onion Rings", price: 1.50 },
+        ],
+      },
+      {
+        id: "add-ons",
+        name: "Add-Ons",
+        type: "add",
+        options: [
+          { id: "+10-shrimp", name: "+10 Shrimp", price: 14.00 },
+        ],
+      },
+    ],
+  },
+
+  // ===== SIDES =====
+  {
+    id: "hush-puppies",
+    name: "Hush Puppies (6)",
+    description: "Golden-fried cornmeal hush puppies — a southern essential.",
+    price: 3.49,
+    category: "sides",
+    image: "🌽",
+    popular: false,
+    modifiers: [],
+  },
+  {
+    id: "side-fries",
+    name: "Crinkle-Cut Fries",
+    description: "Classic crinkle-cut fries, golden and crispy.",
+    price: 3.99,
+    category: "sides",
+    image: "🍟",
+    popular: false,
+    modifiers: [],
+  },
+  {
+    id: "side-coleslaw",
+    name: "Creamy Coleslaw",
+    description: "Cool, creamy coleslaw — the perfect pairing with fried fish.",
+    price: 3.49,
+    category: "sides",
+    image: "🥗",
+    popular: false,
+    modifiers: [],
+  },
+  {
+    id: "side-greens",
+    name: "Turnip Greens",
+    description: "Slow-cooked turnip greens with smoked seasoning.",
+    price: 3.99,
+    category: "sides",
+    image: "🥬",
+    popular: false,
+    modifiers: [],
+  },
+  {
+    id: "side-beans",
+    name: "White Beans",
+    description: "Southern-style white beans seasoned to perfection.",
+    price: 3.49,
+    category: "sides",
+    image: "🫘",
+    popular: false,
+    modifiers: [],
+  },
+  {
+    id: "side-onion-rings",
+    name: "Onion Rings",
+    description: "Hand-breaded onion rings, crispy and sweet.",
+    price: 4.99,
+    category: "sides",
+    image: "🧅",
+    popular: false,
+    modifiers: [],
+  },
+
+  // ===== DRINKS =====
+  {
+    id: "drink-sweet-tea",
+    name: "Sweet Tea",
+    description: "Fresh-brewed southern sweet tea.",
+    price: 2.49,
+    category: "drinks",
+    image: "🍵",
+    popular: false,
+    modifiers: [
+      {
+        id: "size",
+        name: "Size",
+        type: "select-one",
+        required: true,
+        options: [
+          { id: "regular", name: "Regular", price: 0 },
+          { id: "large", name: "Large", price: 0.50 },
+          { id: "half-gallon", name: "Half Gallon", price: 5.99 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "drink-lemonade",
+    name: "Lemonade",
+    description: "Fresh-squeezed lemonade.",
+    price: 2.49,
+    category: "drinks",
+    image: "🍋",
+    popular: false,
+    modifiers: [
+      {
+        id: "size",
+        name: "Size",
+        type: "select-one",
+        required: true,
+        options: [
+          { id: "regular", name: "Regular", price: 0 },
+          { id: "large", name: "Large", price: 0.50 },
+        ],
+      },
+    ],
+  },
+  {
+    id: "drink-soda",
+    name: "Fountain Soda",
+    description: "Coke, Diet Coke, Sprite, Dr Pepper.",
+    price: 2.29,
+    category: "drinks",
+    image: "🥤",
+    popular: false,
+    modifiers: [
+      {
+        id: "flavor",
+        name: "Flavor",
+        type: "select-one",
+        required: true,
+        options: [
+          { id: "coke", name: "Coke", price: 0 },
+          { id: "diet-coke", name: "Diet Coke", price: 0 },
+          { id: "sprite", name: "Sprite", price: 0 },
+          { id: "dr-pepper", name: "Dr Pepper", price: 0 },
+        ],
+      },
+    ],
+  },
+];
+
+const CATEGORIES = [
+  { id: "plates", name: "Plates", icon: "🍽️" },
+  { id: "family", name: "Family Packs", icon: "👨‍👩‍👧‍👦" },
+  { id: "sides", name: "Sides", icon: "🥗" },
+  { id: "drinks", name: "Drinks", icon: "🥤" },
+];
