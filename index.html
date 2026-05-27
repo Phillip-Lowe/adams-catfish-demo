@@ -568,8 +568,8 @@
     <div class="brand">
       <img src="assets/logo.png" alt="" class="brand-logo" id="brandLogo">
       <div class="brand-text">
-        <h1 id="brandName">Crepe Coop</h1>
-        <span id="brandTagline">Fresh. Local. Folded with love.</span>
+        <h1 id="brandName">Adams Catfish Express & Catering</h1>
+        <span id="brandTagline">Good Eatin'!</span>
       </div>
     </div>
     <button class="cart-btn" onclick="scrollToCart()">
@@ -582,7 +582,7 @@
 <!-- HERO -->
 <section class="hero">
   <h2>Order <span class="gold">Online</span></h2>
-  <p>Pick your crepe, customize it, and we'll have your payment link sent in seconds.</p>
+  <p>Pick your plate, choose your sides, and we'll have it ready for pickup.</p>
   <div class="hours-pill" id="hoursPill">
     <span class="dot"></span>
     <span id="hoursText">Mon–Sat · 7:00 AM – 2:00 PM CT</span>
@@ -598,14 +598,14 @@
     <div class="alert alert-success" id="alertSuccess"></div>
     <div class="alert alert-error" id="alertError"></div>
 
-    <!-- SAVORY -->
-    <h3 class="section-title"><span class="icon">🍳</span> Savory Crepes</h3>
-    <p class="section-sub">Made with fresh, local ingredients and house-made sauces.</p>
+    <!-- CATFISH PLATES -->
+    <h3 class="section-title"><span class="icon">🐟</span> Catfish Plates</h3>
+    <p class="section-sub">Fresh fried catfish with all the fixins — hush puppies, fries, coleslaw.</p>
     <div class="menu-grid" id="savoryGrid"></div>
 
-    <!-- SWEET -->
-    <h3 class="section-title"><span class="icon">🍓</span> Sweet Crepes</h3>
-    <p class="section-sub">Folded with fresh fruit, premium spreads, and a little sweetness.</p>
+    <!-- SHRIMP & COMBOS -->
+    <h3 class="section-title"><span class="icon">🍤</span> Shrimp & Combos</h3>
+    <p class="section-sub">Jumbo shrimp, combo plates, and family packs for any appetite.</p>
     <div class="menu-grid" id="sweetGrid"></div>
 
   </div>
@@ -619,7 +619,7 @@
       <div id="cartContent">
         <div class="cart-empty">
           <div class="emoji">🛒</div>
-          <p>Your cart is empty.<br>Select a crepe to get started.</p>
+          <p>Your cart is empty.<br>Select a plate to get started.</p>
         </div>
       </div>
     </div>
@@ -666,7 +666,7 @@
 <!-- FOOTER -->
 <footer class="footer" id="pageFooter">
   <p><img src="assets/logo.png" alt="" style="width:28px;height:28px;vertical-align:middle;margin-right:8px;border-radius:6px;"> <span id="footerBrand">Adams Catfish Express & Catering · Good Eatin'!</span></p>
-  <p style="margin-top:4px" id="footerContact">Questions? Call, text, or <a href="mailto:order@crepecoop.com" style="color:var(--ud-secondary);text-decoration:underline;">email us</a></p>
+  <p style="margin-top:4px" id="footerContact">Questions? Call, text, or <a href="mailto:frazdon6549@gmail.com" style="color:var(--ud-secondary);text-decoration:underline;">email us</a></p>
 </footer>
 
 <script src="menu-data.js?v=6"></script>
@@ -825,7 +825,7 @@ function updateCart() {
     content.innerHTML = `
       <div class="cart-empty">
         <div class="emoji">🛒</div>
-        <p>Your cart is empty.<br>Select a crepe to get started.</p>
+        <p>Your cart is empty.<br>Select a plate to get started.</p>
       </div>
     `;
     return;
@@ -1003,7 +1003,7 @@ function checkHours() {
 
 // ===================== BRAND INJECTION =====================
 function applyBrand() {
-  if (typeof BRAND === 'undefined') return;
+  if (typeof CONFIG === 'undefined' || !CONFIG.brand) return;
   document.title = CONFIG.brand.name + ' — Order Online';
   document.getElementById('pageTitle').textContent = CONFIG.brand.name + ' — Order Online';
   document.getElementById('brandName').textContent = CONFIG.brand.name;
